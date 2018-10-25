@@ -1,8 +1,11 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment } from 'react';
 
-import { Header, Footer } from './Layouts'
-import Exercises from './Exercises'
-import { muscles, exercises } from '../store'
+import { MuiThemeProvider } from '@material-ui/core/styles';
+
+import { Header, Footer } from './Layouts';
+import Exercises from './Exercises';
+import { muscles, exercises } from '../store';
+import { vondTheme } from '../Theme/VondTheme'
 
 export default class App extends Component {
   state = {
@@ -76,28 +79,28 @@ export default class App extends Component {
     const exercises = this.getExercisesByMuscles(),
     { category, exercise, editMode } = this.state
     return (
-      <Fragment>
-       <Header 
-        muscles={ muscles }
-        onExerciseCreate={ this.handleExerciseCreate }
-       />
-       <Exercises
-        exercise={ exercise }
-        category={ category }
-        exercises={ exercises }
-        editMode={ editMode }
-        muscles={ muscles }
-        onSelect={ this.handleExerciseSelect }
-        onSelectEdit={ this.handleExerciseSelectEdit }
-        onDelete={ this.handleExerciseDelete }
-        onEdit={ this.handleExerciseEdit }
-       />
-       <Footer
-        category={ category }
-        muscles={ muscles }
-        onSelect= { this.handleCategorySelect }
-       />
-      </Fragment>
+      <MuiThemeProvider theme={ vondTheme }>
+          <Header 
+            muscles={ muscles }
+            onExerciseCreate={ this.handleExerciseCreate }
+          />
+          <Exercises
+            exercise={ exercise }
+            category={ category }
+            exercises={ exercises }
+            editMode={ editMode }
+            muscles={ muscles }
+            onSelect={ this.handleExerciseSelect }
+            onSelectEdit={ this.handleExerciseSelectEdit }
+            onDelete={ this.handleExerciseDelete }
+            onEdit={ this.handleExerciseEdit }
+          />
+          <Footer
+            category={ category }
+            muscles={ muscles }
+            onSelect= { this.handleCategorySelect }
+          />
+      </MuiThemeProvider>      
     )
   }
 }

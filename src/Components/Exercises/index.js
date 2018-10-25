@@ -62,10 +62,10 @@ export default ({
                                     >   
                                         <ListItemText primary={ exercise.title } />
                                         <ListItemSecondaryAction>
-                                            <IconButton onClick={ () => onSelectEdit( exercise.id ) }>
+                                            <IconButton onClick={ () => onSelectEdit( exercise.id ) } color='secondary'>
                                                 <Edit/>
                                             </IconButton>
-                                            <IconButton onClick={ () => onDelete( exercise.id ) }>
+                                            <IconButton onClick={ () => onDelete( exercise.id ) } color='secondary'>
                                                 <Delete/>
                                             </IconButton>
                                         </ListItemSecondaryAction>
@@ -78,7 +78,7 @@ export default ({
             </Paper>
         </Grid>
         <Grid item sm>
-            <Paper style={styles.Paper}>
+            <Paper style={ styles.Paper }>
                 {editMode
                 ?<Form
                     exercise={ exercise }
